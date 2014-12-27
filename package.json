@@ -1,9 +1,8 @@
 {
   "name": "angular-seed",
-  "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "Course project for AngularJS course in Software University",
+  "repository": "https://github.com/astoimenov/angular-project",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
