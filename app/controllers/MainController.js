@@ -3,9 +3,9 @@
 angular.module('myApp.main', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
-            controller: 'View1Ctrl'
+        $routeProvider.when('/', {
+            templateUrl: 'index1.html',
+            controller: 'MainCtrl'
         });
     }])
 

@@ -7,3 +7,20 @@ body {
 .panel-body {
     border: 1px solid #eee;
 }
+
+/*.navbar-brand {
+    float: none !important;
+    margin: 0 auto;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.navbar-center {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+}*/

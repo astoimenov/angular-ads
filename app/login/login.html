@@ -1,0 +1,51 @@
+<ng-include src="'partials/nav.html'"></ng-include>
+
+<div class="row">
+    <ng-include src="'partials/please-login.html'"></ng-include>
+
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Login</legend>
+
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+
+                            <div class="col-lg-5">
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control empty"
+                                           id="inputUsername" placeholder="Username">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+
+                            <div class="col-lg-5">
+                                <div class="form-control-wrapper">
+                                    <input type="password" class="form-control empty"
+                                           id="inputPassword" placeholder="Password">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="submit" class="btn btn-primary">Submit
+                                    <div class="ripple-wrapper"></div>
+                                </button>
+
+                                <a href="#/register" class="btn btn-link">Register here</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
