@@ -1,110 +1,102 @@
-<ng-include src="'partials/nav.html'"></ng-include>
+<ng-include src="'partials/header.html'"></ng-include>
 
 <div class="row">
-    <ng-include src="'partials/please-login.html'"></ng-include>
+    <div class="col-sm-3">
+        <left-public-sidebar></left-public-sidebar>
+    </div>
 
-    <div class="col-lg-8">
-        <div class="panel panel-default">
+    <div class="col-sm-8">
+        <section class="panel panel-default">
             <div class="panel-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" name="form">
                     <fieldset>
                         <legend>Register</legend>
 
                         <div class="form-group row">
-                            <div class="col-lg-6">
-                                <label for="inputUsername" class="col-lg-2 control-label">Username</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="text" class="form-control empty"
-                                               id="inputUsername" placeholder="Username">
-                                        <span class="material-input"></span>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control"
+                                           id="inputUsername"
+                                           ng-model="user.username" required>
+                                    <div class="floating-label">Username</div>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6">
-                                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="password" class="form-control empty"
-                                               id="inputPassword" placeholder="Password">
-                                        <span class="material-input"></span>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="password" class="form-control empty"
+                                           id="inputPassword"
+                                           ng-model="user.password" required>
+                                    <div class="floating-label">Password</div>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
-                                <label for="confirmPassword" class="col-lg-2 control-label">Confirm password</label>
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="password" class="form-control empty"
+                                           id="confirmPassword"
+                                           ng-model="user.password_verify" name='confirm_password'
+                                           data-password-verify="user.password" required>
+                                    <div class="floating-label">Confirm password</div>
+                                    <span class="material-input"></span>
+                                </div>
+                                <small style="color: #f43" ng-show="form.confirm_password.$error.passwordVerify">
+                                    Fields are not equal!
+                                </small>
+                            </div>
+                        </div>
 
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="password" class="form-control empty"
-                                               id="confirmPassword" placeholder="Confirm password">
-                                        <span class="material-input"></span>
-                                    </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control empty"
+                                           id="inputName"
+                                           ng-model="user.name" required>
+                                    <div class="floating-label">Name</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="email" class="form-control empty"
+                                           id="inputEmail"
+                                           ng-model="user.email" required>
+                                    <div class="floating-label">Email</div>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-6">
-                                <label for="inputName" class="col-lg-2 control-label">Name</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="text" class="form-control empty"
-                                               id="inputName" placeholder="Name">
-                                        <span class="material-input"></span>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="tel" class="form-control empty"
+                                           id="inputPhone"
+                                           ng-model="user.phone" required>
+                                    <div class="floating-label">Phone</div>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
-                                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="email" class="form-control empty"
-                                               id="inputEmail" placeholder="Email">
-                                        <span class="material-input"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-lg-6">
-                                <label for="inputName" class="col-lg-2 control-label">Phone</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <input type="tel" class="form-control empty"
-                                               id="inputPhone" placeholder="Phone">
-                                        <span class="material-input"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <label for="town" class="col-lg-2 control-label">Town</label>
-
-                                <div class="col-lg-10">
-                                    <div class="form-control-wrapper">
-                                        <select class="form-control" id="town">
-                                            <option ng-repeat="town in towns">{{ town.name }}</option>
-                                        </select>
-                                        <span class="material-input"></span>
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <select class="form-control" id="town"
+                                            ng-model="user.townId" required
+                                            ng-options="town.id as town.name for town in towns">
+                                    </select>
+                                    <div class="floating-label">Town</div>
+                                    <span class="material-input"></span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-lg-10 col-lg-offset-2">
+                            <div class="col-sm-10 col-sm-offset-2">
                                 <button type="submit" class="btn btn-primary">Submit
                                     <div class="ripple-wrapper"></div>
                                 </button>
@@ -115,6 +107,6 @@
                     </fieldset>
                 </form>
             </div>
-        </div>
+        </section>
     </div>
 </div>

@@ -5,7 +5,8 @@ myApp.factory('mainData', function ($http, $log) {
         getAllTowns: function (success) {
             return $http({
                 method: 'GET',
-                url: 'http://softuni-ads.azurewebsites.net/api/towns'
+                url: 'http://softuni-ads.azurewebsites.net/api/towns',
+                cache: true
             })
                 .success(function (data) {
                     success(data);

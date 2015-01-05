@@ -11,8 +11,17 @@ angular.module('myApp.register', ['ngRoute'])
 
     .controller('RegisterCtrl', ['$scope', 'mainData', function ($scope, mainData) {
         $scope.title = 'Registration';
-        
+
         mainData.getAllTowns(function (resp) {
             $scope.towns = resp;
         });
+
+        $scope.user = {
+            username: '',
+            password: '',
+            name: '',
+            email: '',
+            phone: '',
+            town: ''
+        }
     }]);

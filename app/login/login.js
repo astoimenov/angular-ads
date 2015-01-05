@@ -11,4 +11,9 @@ angular.module('myApp.login', ['ngRoute'])
 
     .controller('LoginCtrl', ['$scope', function ($scope) {
         $scope.title = 'Login';
+
+        $scope.user = {
+            username: '',
+            password: ''
+        };
     }]);
