@@ -22,7 +22,6 @@ var adsApp = angular.module('adsApp', ['ngRoute', 'ngResource', 'LocalStorageMod
 
         // Web storage settings
         localStorageServiceProvider.setStorageType('localStorage');
-        localStorageServiceProvider.setPrefix('adsApp');
 
     }]);
 

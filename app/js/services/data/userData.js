@@ -10,11 +10,21 @@ adsApp.factory('userData', ['$resource', 'baseServiceUrl', 'authentication', fun
     }
 
     function loginUser(user) {
-
+        return $resource(baseServiceUrl + 'user/login')
+            .save(user)
+            .$promise
+            .then(function (data) {
+                authentication.saveUser(data);
+            });
     }
 
-    function logoutUser() {
-
+    function logoutUser(user) {
+        return $resource(baseServiceUrl + 'user/logout')
+            .save(user)
+            .$promise
+            .then(function () {
+                authentication.removeUser();
+            });
     }
 
     return {

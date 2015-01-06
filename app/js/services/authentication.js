@@ -6,11 +6,34 @@ adsApp.factory('authentication', ['localStorageService', function (localStorageS
     }
 
     function getUserData() {
-        localStorageService.get(key);
+        return localStorageService.get(key);
+    }
+
+    function removeUser(key) {
+        localStorage.removeItem(key);
+        //localStorageService.remove();
+    }
+
+    function getHeaders() {
+        var headers = {};
+        var userData = getUserData();
+
+        if(userData){
+            headers.Authorization = 'Bearer ' + userData.access_token;
+        }
+
+        return headers;
+    }
+
+    function isAdmin() {
+        return getUserData().isAdmin;
     }
 
     return {
         saveUser: saveUserData,
-        getUser: getUserData
+        getUser: getUserData,
+        removeUser: removeUser,
+        getHeaders: getHeaders,
+        isAdmin: isAdmin
     }
 }]);
