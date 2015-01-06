@@ -1,8 +1,8 @@
-<!--<ng-include src="'partials/header.html'"></ng-include>-->
+<navigation></navigation>
 
 <div class="row">
     <div class="col-sm-3">
-        <left-public-sidebar></left-public-sidebar>
+        <public-left-sidebar></public-left-sidebar>
     </div>
 
     <div class="col-sm-8">
@@ -18,6 +18,7 @@
                                     <input type="text" class="form-control empty"
                                            id="inputUsername"
                                            ng-model="user.username" required>
+
                                     <div class="floating-label">Username</div>
                                     <span class="material-input"></span>
                                 </div>
@@ -30,6 +31,7 @@
                                     <input type="password" class="form-control empty"
                                            id="inputPassword"
                                            ng-model="user.password" required>
+
                                     <div class="floating-label">Password</div>
                                     <span class="material-input"></span>
                                 </div>

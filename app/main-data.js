@@ -1,6 +1,6 @@
 'use strict';
 
-myApp.factory('mainData', function ($http, $log) {
+adsApp.factory('mainData', function ($http, $log) {
     return {
         getAllTowns: function (success) {
             return $http({
