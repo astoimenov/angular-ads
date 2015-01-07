@@ -1,0 +1,26 @@
+<navigation></navigation>
+
+<div class="row">
+    <div class="col-sm-3">
+        <public-left-sidebar></public-left-sidebar>
+    </div>
+
+    <div class="col-sm-6">
+        <pagination total-items="adsData.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true">
+        </pagination>
+
+        <public-ads></public-ads>
+
+        <pagination total-items="adsData.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true">
+        </pagination>
+    </div>
+
+    <div class="col-sm-3">
+        <categories></categories>
+        <towns></towns>
+    </div>
+</div>
