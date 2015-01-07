@@ -1,14 +1,15 @@
 adsApp.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, baseServiceUrl) {
     var resource = $resource(baseServiceUrl + 'ads:adId', { adId: '@id' }, {
-        update: { method: 'PUT' }
+        update: { method: 'PUT' },
+        getAll: { method: 'GET' }
     });
 
     function createAd(ad) {
         return resource.save(ad);
     }
 
-    function getPublicAds() {
-        return resource.get();
+    function getPublicAds(params, success, error) {
+        return resource.getAll(params, success, error);
     }
 
     function getAdById(adId) {

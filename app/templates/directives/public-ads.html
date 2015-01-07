@@ -1,6 +1,30 @@
 <div id="public-ads">
+    <div class="loader" ng-hide="ready">
+        <div class="spin"></div>
+    </div>
     <div class="panel panel-default" ng-repeat="ad in adsData.ads">
-        <div class="panel-heading">{{ ad.title }}</div>
-        <div class="panel-body">{{ ad.text }}</div>
+        <div class="panel-heading">{{ ad.title }} <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time></div>
+        <div class="panel-body ad-body">
+            <img ng-src="{{ ad.imageDataUrl }}" />
+            <div class="ad-info">
+                <div class="ad-text">
+                    {{ ad.text }}
+                </div>
+                <div class="owner-info">
+                    <div>
+                        <strong>Name:</strong>
+                        {{ ad.ownerName }}
+                    </div>
+                    <div>
+                        <strong>Email:</strong>
+                        {{ ad.ownerEmail }}
+                    </div>
+                    <div>
+                        <strong>Phone:</strong>
+                        {{ ad.ownerPhone }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

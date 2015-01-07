@@ -1,6 +1,11 @@
 'use strict';
 
-var adsApp = angular.module('adsApp', ['ngRoute', 'ngResource', 'LocalStorageModule'])
+var adsApp = angular.module('adsApp', [
+    'ngRoute',
+    'ngResource',
+    'LocalStorageModule',
+    'ui.bootstrap.pagination'
+])
 
     .config(['$routeProvider', 'localStorageServiceProvider', function ($routeProvider, localStorageServiceProvider) {
         $routeProvider.when('/', {
@@ -26,3 +31,4 @@ var adsApp = angular.module('adsApp', ['ngRoute', 'ngResource', 'LocalStorageMod
     }]);
 
 adsApp.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net/api/');
+adsApp.constant('pageSize', 5);

@@ -1,6 +1,6 @@
 adsApp.directive('categories', function () {
     return {
-        controller: 'HomeCtrl',
+        controller: 'RightSidebarCtrl',
         restrict: 'E',
         templateUrl: 'templates/directives/categories.html',
         replace: true

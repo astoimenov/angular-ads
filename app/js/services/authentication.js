@@ -9,8 +9,8 @@ adsApp.factory('authentication', ['localStorageService', function (localStorageS
         return localStorageService.get(key);
     }
 
-    function removeUser(key) {
-        localStorage.removeItem(key);
+    function removeUser() {
+        localStorage.removeItem('ls.user');
         //localStorageService.remove();
     }
 
