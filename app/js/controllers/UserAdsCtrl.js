@@ -1,9 +1,10 @@
-adsApp.controller('PublicAdsCtrl', [
+adsApp.controller('UserAdsCtrl', [
     '$scope',
-    'adsData',
+    'userData',
     'pageSize',
     'notification',
-    function ($scope, adsData, pageSize, notification) {
+    function ($scope, userData, pageSize, notification) {
+
         $scope.ready = false;
         $scope.adsParams = {
             'startPage': 1,
@@ -11,11 +12,17 @@ adsApp.controller('PublicAdsCtrl', [
         };
 
         $scope.reloadAds = function () {
-            adsData.getPublicAds(
+            userData.getUserAds(
                 $scope.adsParams,
                 function success(data) {
                     $scope.adsData = data;
                     $scope.ready = true;
+
+                    userData.getUserProfile(
+                        function success(data) {
+                            $scope.ownerData = data;
+                        }
+                    );
                 },
                 function error(err) {
                     notification.showError('Cannot load ads', err);
@@ -36,4 +43,4 @@ adsApp.controller('PublicAdsCtrl', [
             $scope.adsParams.startPage = 1;
             $scope.reloadAds();
         });
-}]);
+    }]);

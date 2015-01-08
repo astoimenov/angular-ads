@@ -1,4 +1,7 @@
-adsApp.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, baseServiceUrl) {
+adsApp.factory('adsData', [
+    '$resource',
+    'baseServiceUrl',
+    function ($resource, baseServiceUrl) {
     var resource = $resource(baseServiceUrl + 'ads:adId', { adId: '@id' }, {
         update: { method: 'PUT' },
         getAll: { method: 'GET' }

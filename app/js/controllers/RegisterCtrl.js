@@ -1,13 +1,25 @@
-adsApp.controller('RegisterCtrl', ['$scope', 'townsData', 'userData', function ($scope, townsData, userData) {
-    $scope.title = 'Register';
+adsApp.controller('RegisterCtrl', [
+    '$scope',
+    '$location',
+    'townsData',
+    'userData',
+    'notification',
+    function ($scope, $location, townsData, userData, notification) {
 
-    townsData.getTowns()
-        .$promise
-        .then(function (data) {
-            $scope.towns = data;
-        });
+        townsData.getTowns()
+            .$promise
+            .then(function (data) {
+                $scope.towns = data;
+            });
 
-    $scope.register = function (user) {
-        userData.register(user);
-    }
+        $scope.register = function (user) {
+            userData.register(user)
+                .$promise
+                .then(function () {
+                    notification.showInfo('User account created. Please log in.');
+                    $location.path('/login');
+                }, function (error) {
+                    notification.showError('Invalid registration', error);
+                });
+        }
 }]);

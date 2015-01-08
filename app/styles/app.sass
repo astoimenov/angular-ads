@@ -3,10 +3,40 @@
 body
     padding-top: 90px
 
+    header
+
+        .navbar-header
+            width: 98%
+
+        .user-area
+            float: right
+
+        #logo
+            float: left
+            width: 45px
+
     ul
         &.pagination
             display: table
             margin: 15px auto
+
+        &.sidebar-menu
+            list-style-type: none
+            padding-left: 20px
+
+            li
+                color: #337AB7
+                padding: 5px
+                width: 200px
+
+                &:hover
+                    background-color: #eee
+                    color: #23527C
+                    cursor: pointer
+
+                &.selected
+                    background-color: #03A9F4
+                    color: rgba(255, 255, 255, 0.843137)
 
     .panel
 
@@ -89,6 +119,12 @@ body
                 border-bottom-color: rgba(0, 0, 0, .2)
                 opacity: 1
                 -webkit-animation: myspin 1s reverse ease infinite
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus
+    background-color: #03A9F4 !important
+    border-color: #03A9F4 !important
+    color: rgba(255, 255, 255, 0.843137) !important
 
 @-webkit-keyframes myspin
     from

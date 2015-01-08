@@ -15,11 +15,11 @@ adsApp.factory('notification',
             showError: function (msg, serverError) {
                 // Collect errors to display from the server response
                 var errors = [];
-                if (serverError && serverError.error_description) {
-                    errors.push(serverError.error_description);
+                if (serverError && serverError.data.error_description) {
+                    errors.push(serverError.data.error_description);
                 }
-                if (serverError && serverError.modelState) {
-                    var modelStateErrors = serverError.modelState;
+                if (serverError && serverError.data.modelState) {
+                    var modelStateErrors = serverError.data.modelState;
                     for (var propertyName in modelStateErrors) {
                         var errorMessages = modelStateErrors[propertyName];
                         var trimmedName =

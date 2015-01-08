@@ -2,7 +2,8 @@
 
 <div class="row">
     <div class="col-sm-3">
-        <public-left-sidebar></public-left-sidebar>
+        <public-left-sidebar ng-if="!isLoggedIn"></public-left-sidebar>
+        <logged-in-sidebar ng-if="isLoggedIn"></logged-in-sidebar>
     </div>
 
     <div class="col-sm-6">
@@ -11,7 +12,8 @@
                     max-size="9" boundary-links="true">
         </pagination>
 
-        <public-ads></public-ads>
+        <public-ads ng-if="inPublic"></public-ads>
+        <user-ads ng-if="inMyAds"></user-ads>
 
         <pagination total-items="adsData.numItems" ng-model="adsParams.startPage"
                     items-per-page="adsParams.pageSize" ng-change="reloadAds()"
