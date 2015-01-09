@@ -4,17 +4,18 @@ adsApp.controller('PublicAdsCtrl', [
     'pageSize',
     'notification',
     function ($scope, adsData, pageSize, notification) {
+
         $scope.ready = false;
         $scope.adsParams = {
-            'startPage': 1,
-            'pageSize': pageSize
+            startPage: 1,
+            pageSize: pageSize
         };
 
         $scope.reloadAds = function () {
             adsData.getPublicAds(
                 $scope.adsParams,
                 function success(data) {
-                    $scope.adsData = data;
+                    $scope.ads = data;
                     $scope.ready = true;
                 },
                 function error(err) {

@@ -32,7 +32,8 @@ adsApp.controller('PublishNewAdCtrl', [
         $scope.publishAd = function (adData) {
             userData.createNewAd(adData,
                 function success() {
-                    notification.showInfo('Successfully published');
+                    notification.showInfo(
+                        'Advertisement submitted dor approval. Once approved, it will be published.');
                     $location.path('/user/ads');
                 },
                 function error(err) {

@@ -1,10 +1,14 @@
 /* app css stylesheet */
 body {
   padding-top: 90px; }
+  body a {
+    cursor: pointer; }
   body header .navbar-header {
     width: 98%; }
   body header .user-area {
-    float: right; }
+    float: right;
+    font-size: 17px;
+    padding: 13px; }
   body header #logo {
     float: left;
     width: 45px; }
@@ -54,6 +58,11 @@ body {
           padding: 5px; }
   body .btn-group-vertical {
     margin: 0 !important; }
+  body .image-box {
+    width: 500px;
+    padding: 20px; }
+    body .image-box img {
+      width: 100%; }
   body footer {
     text-align: center; }
   body .loader {

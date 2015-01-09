@@ -1,8 +1,9 @@
 adsApp.factory('adsData', [
     '$resource',
+    'authentication',
     'baseServiceUrl',
-    function ($resource, baseServiceUrl) {
-    var resource = $resource(baseServiceUrl + 'ads:adId', { adId: '@id' }, {
+    function ($resource, authentication, baseServiceUrl) {
+    var resource = $resource(baseServiceUrl + 'ads/:adId', { adId: '@id' }, {
         update: { method: 'PUT' },
         getAll: { method: 'GET' }
     });
@@ -19,8 +20,19 @@ adsApp.factory('adsData', [
         return resource.get({ id: adId });
     }
 
-    function editAd(adid, ad) {
-        return resource.update({ id: adid }, ad);
+    function editAd(adId, ad) {
+        return resource.update({ id: adId }, ad);
+    }
+
+    function deactivateAd(adId) {
+        var res = $resource(baseServiceUrl + 'user/ads/deactivate/:adId', {adId: '@id'}, {
+            update: {
+                method: 'PUT',
+                headers: authentication.getHeaders()
+            }
+        });
+
+        return res.update({ id: adId });
     }
 
     function removeAd(adId) {
@@ -32,6 +44,7 @@ adsApp.factory('adsData', [
         getPublicAds: getPublicAds,
         getAdById: getAdById,
         edit: editAd,
+        deactivate: deactivateAd,
         delete: removeAd
     }
 }]);

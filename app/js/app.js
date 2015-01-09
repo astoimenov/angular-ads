@@ -14,8 +14,7 @@ var adsApp = angular.module('adsApp', [
             $routeProvider.when('/', {
                 title: 'Home',
                 templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl',
-                view: 'public'
+                controller: 'HomeCtrl'
             });
 
             $routeProvider.when('/login', {
@@ -30,18 +29,28 @@ var adsApp = angular.module('adsApp', [
                 controller: 'RegisterCtrl'
             });
 
-            $routeProvider.when('/user/ads', {
-                title: 'My ads',
-                templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl',
-                view: 'myAds'
+            $routeProvider.when('/user/home', {
+                title: 'Home',
+                templateUrl: 'templates/user-home.html',
+                controller: 'UserHomeCtrl'
             });
 
-            $routeProvider.when('/user/ads/new', {
+            $routeProvider.when('/user/ads', {
+                title: 'My ads',
+                templateUrl: 'templates/user-home.html',
+                controller: 'UserAdsCtrl'
+            });
+
+            $routeProvider.when('/user/ads/publish', {
                 title: 'Publish new ad',
                 templateUrl: 'templates/publish-new-ad.html',
-                controller: 'PublishNewAdCtrl',
-                view: 'publishNew'
+                controller: 'PublishNewAdCtrl'
+            });
+
+            $routeProvider.when('/user/profile', {
+                title: 'Edit user profile',
+                templateUrl: 'templates/edit-user-profile.html',
+                controller: 'EditUserProfileCtrl'
             });
 
             $routeProvider.otherwise({ redirectTo: '/' });

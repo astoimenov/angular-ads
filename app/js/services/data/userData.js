@@ -18,9 +18,11 @@ adsApp.factory('userData', [
 
         function getUserAds(params, success, error) {
             var resource = $resource(baseServiceUrl + 'user/ads:adId', {adId: '@id'}, {
-                update: {method: 'PUT'},
-                getAll: {method: 'GET',
-                    headers: authentication.getHeaders()}
+                update: { method: 'PUT' },
+                getAll: {
+                    method: 'GET',
+                    headers: authentication.getHeaders()
+                }
             });
 
             return resource.getAll(params, success, error);
@@ -37,10 +39,8 @@ adsApp.factory('userData', [
         }
 
         function registerUser(user) {
-            var resource = $resource(baseServiceUrl + 'user/register')
+            return $resource(baseServiceUrl + 'user/register')
                 .save(user);
-
-            return resource;
         }
 
         function loginUser(user) {

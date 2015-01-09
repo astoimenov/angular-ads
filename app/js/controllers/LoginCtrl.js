@@ -10,17 +10,9 @@ adsApp.controller('LoginCtrl', [
                 .$promise
                 .then(function () {
                     notification.showInfo('Login successful');
-                    $location.path('/');
+                    $location.path('/user/home');
                 }, function(error) {
                     notification.showError('Invalid login', error);
                 });
-
-            //authentication.login(user, function () {
-            //    notification.showInfo('Login successful');
-            //    $location.path('/');
-            //}, function(error) {
-            //    notification.showError('Invalid login', error);
-            //})
-
         }
 }]);

@@ -2,11 +2,12 @@
 
 <div class="row">
     <div class="col-sm-3">
-        <public-left-sidebar></public-left-sidebar>
+        <logged-in-sidebar></logged-in-sidebar>
     </div>
 
     <div class="col-sm-6">
-        <public-ads></public-ads>
+        <public-ads ng-if="inHome"></public-ads>
+        <user-ads ng-if="inMyAds"></user-ads>
     </div>
 
     <div class="col-sm-3">

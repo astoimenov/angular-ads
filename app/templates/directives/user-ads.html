@@ -1,37 +1,52 @@
 <div id="user-ads">
-    <div class="loader" ng-hide="ready">
-        <div class="spin"></div>
-    </div>
-    <div class="panel panel-default" ng-repeat="ad in adsData.ads">
-        <div class="panel-heading">{{ ad.title }}
-            <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time>
-        </div>
-        <div class="panel-body ad-body">
-            <img ng-src="{{ ad.imageDataUrl }}"/>
+    <div ng-if="ads.numItems>0">
+        <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true" ng-if="ads.numItems>adsParams.pageSize">
+        </pagination>
 
-            <div class="ad-info">
-                <div class="ad-text">
-                    {{ ad.text }}
+        <div class="loader" ng-hide="ready">
+            <div class="spin"></div>
+        </div>
+        <div class="panel panel-default" ng-repeat="ad in ads.ads">
+            <div class="panel-heading">{{ ad.title }}
+                <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time>
+            </div>
+            <div class="panel-body ad-body">
+                <img ng-src="{{ ad.imageDataUrl }}"/>
+
+                <div class="ad-info">
+                    <div class="ad-text">
+                        {{ ad.text }}
+                    </div>
+                    <div class="ad-category">
+                        <strong>Category:</strong>
+                        {{ ad.categoryName }}
+                    </div>
+                    <div class="ad-town">
+                        <strong>Town:</strong>
+                        {{ ad.townName }}
+                    </div>
                 </div>
-                <div class="owner-info">
-                    <div>
-                        <strong>Name:</strong>
-                        {{ ownerData.name }}
+                <div class="manage-ad">
+                    <div class="status">
+                        <strong>Status:</strong>
+                        {{ ad.status}}
                     </div>
-                    <div>
-                        <strong>Email:</strong>
-                        {{ ownerData.email }}
-                    </div>
-                    <div>
-                        <strong>Phone:</strong>
-                        {{ ownerData.phoneNumber }}
-                    </div>
+                    <button type="submit" ng-click="deactivate(ad.id)" class="btn btn-primary">Deactivate
+                        <div class="ripple-wrapper"></div>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true" ng-if="ads.numItems>adsParams.pageSize">
+        </pagination>
     </div>
 
-    <div ng-if="adsData.numItems==0">
-        no ads
+    <div ng-if="ads.numItems==0">
+        <h2>No ads</h2>
     </div>
 </div>

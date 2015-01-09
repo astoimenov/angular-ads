@@ -1,37 +1,51 @@
 <div id="public-ads">
+
     <div class="loader" ng-hide="ready">
         <div class="spin"></div>
     </div>
-    <div class="panel panel-default" ng-repeat="ad in adsData.ads">
-        <div class="panel-heading">{{ ad.title }}
-            <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time>
-        </div>
-        <div class="panel-body ad-body">
-            <img ng-src="{{ ad.imageDataUrl }}"/>
 
-            <div class="ad-info">
-                <div class="ad-text">
-                    {{ ad.text }}
-                </div>
-                <div class="owner-info">
-                    <div>
-                        <strong>Name:</strong>
-                        {{ ad.ownerName }}
+    <div ng-if="ads.numItems>0">
+        <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true" ng-if="ads.numItems>adsParams.pageSize">
+        </pagination>
+
+        <div class="panel panel-default" ng-repeat="ad in ads.ads">
+            <div class="panel-heading">{{ ad.title }}
+                <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time>
+            </div>
+            <div class="panel-body ad-body">
+                <img ng-src="{{ ad.imageDataUrl }}"/>
+
+                <div class="ad-info">
+                    <div class="ad-text">
+                        {{ ad.text }}
                     </div>
-                    <div>
-                        <strong>Email:</strong>
-                        {{ ad.ownerEmail }}
-                    </div>
-                    <div>
-                        <strong>Phone:</strong>
-                        {{ ad.ownerPhone }}
+                    <div class="owner-info">
+                        <div>
+                            <strong>Name:</strong>
+                            {{ ad.ownerName }}
+                        </div>
+                        <div>
+                            <strong>Email:</strong>
+                            {{ ad.ownerEmail }}
+                        </div>
+                        <div>
+                            <strong>Phone:</strong>
+                            {{ ad.ownerPhone }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadAds()"
+                    max-size="9" boundary-links="true" ng-if="ads.numItems>adsParams.pageSize">
+        </pagination>
     </div>
 
-    <div ng-if="adsData.numItems==0">
-        no ads
+    <div ng-if="ads.numItems==0">
+        <h2>No ads</h2>
     </div>
 </div>
