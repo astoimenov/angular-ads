@@ -1,0 +1,22 @@
+<div class="manage-ad">
+    <div class="status">
+        <strong>Status:</strong>
+        {{ ad.status}}
+    </div>
+    <div ng-if="ad.status == 'Inactive'">
+        <a href="#/user/ads/edit/{{ ad.id }}" class="btn btn-primary">Edit
+            <div class="ripple-wrapper"></div>
+        </a>
+        <button type="submit" ng-click="publishAgain(ad.id)" class="btn btn-primary">Publish again
+            <div class="ripple-wrapper"></div>
+        </button>
+        <a href="#/user/ads/delete/{{ ad.id }}" class="btn btn-primary">Delete
+            <div class="ripple-wrapper"></div>
+        </a>
+    </div>
+    <div ng-if="ad.status != 'Inactive'">
+        <button type="submit" ng-click="deactivate(ad.id)" class="btn btn-primary">Deactivate
+            <div class="ripple-wrapper"></div>
+        </button>
+    </div>
+</div>

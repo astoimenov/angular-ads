@@ -9,4 +9,13 @@ adsApp.controller('HomeCtrl', [
         $scope.authentication = authentication;
         $scope.isLoggedIn = authentication.isLoggedIn();
 
-}]);
+        $scope.logout = function (user) {
+            userData.logout(user);
+
+            if ($location.$$path == '/') {
+                $route.reload();
+            } else {
+                $location.path('/');
+            }
+        }
+    }]);

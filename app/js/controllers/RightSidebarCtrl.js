@@ -16,4 +16,4 @@ adsApp.controller('RightSidebarCtrl', [
             $scope.selectedTownId = clickedTownId;
             $rootScope.$broadcast('townSelectionChanged', clickedTownId);
         };
-}]);
+    }]);

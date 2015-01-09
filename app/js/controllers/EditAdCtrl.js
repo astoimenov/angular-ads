@@ -1,17 +1,37 @@
 'use strict';
 
-adsApp.controller('PublishNewAdCtrl', [
+adsApp.controller('EditAdCtrl', [
     '$scope',
+    '$routeParams',
     '$location',
     'townsData',
     'categoriesData',
     'userAdsData',
     'notification',
-    function ($scope, $location, townsData, categoriesData,
+    function ($scope, $routeParams, $location, townsData, categoriesData,
               userAdsData, notification) {
-        $scope.adData = {townId: null, categoryId: null};
+
+        var adId = $routeParams.id;
+        var changeImage = false;
+
+        userAdsData.getAdById(adId)
+            .$promise
+            .then(
+            function success(data) {
+                $scope.adData = data;
+            },
+            function error(err) {
+                notification.showError('Advertisement can not be edited', err);
+            }
+        );
+
         $scope.categories = categoriesData.getCategories();
         $scope.towns = townsData.getTowns();
+
+        $scope.deleteImage = function (adData) {
+            delete $scope.adData.imageDataUrl;
+            changeImage = true;
+        };
 
         $scope.fileSelected = function (fileInputField) {
             delete $scope.adData.imageDataUrl;
@@ -20,8 +40,10 @@ adsApp.controller('PublishNewAdCtrl', [
                 var reader = new FileReader();
                 reader.onload = function () {
                     $scope.adData.imageDataUrl = reader.result;
+                    changeImage = true;
                     $(".image-box").html("<img src='" + reader.result + "'>");
                 };
+
                 reader.readAsDataURL(file);
             } else {
                 $(".image-box").html("<p>File type not supported!</p>");
@@ -29,22 +51,20 @@ adsApp.controller('PublishNewAdCtrl', [
         };
 
 
-        $scope.publishAd = function (adData) {
-            if(adData.imageDataUrl == null) {
-                adData.imageDataUrl = '';
-            }
+        $scope.edit = function (adData) {
+            adData.changeImage = changeImage;
 
-            userAdsData.add(adData)
+            userAdsData.edit(adId, adData)
                 .$promise
                 .then(
                 function success() {
                     notification.showInfo(
-                        'Advertisement submitted dor approval. Once approved, it will be published.');
+                        'Advertisement edited. Don\'t forget to submit it for publishing.');
                     $location.path('/user/ads');
                 },
                 function error(err) {
-                    notification.showError('Publishing failed', err);
-                }
-            );
-        }
+                    notification.showError('Editing failed', err);
+                });
+        };
+
     }]);

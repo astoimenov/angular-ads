@@ -47,17 +47,29 @@ var adsApp = angular.module('adsApp', [
                 controller: 'PublishNewAdCtrl'
             });
 
+            $routeProvider.when('/user/ads/edit/:id', {
+                title: 'Edit ad',
+                templateUrl: 'templates/edit-ad.html',
+                controller: 'EditAdCtrl'
+            });
+
+            $routeProvider.when('/user/ads/delete/:id', {
+                title: 'Delete ad',
+                templateUrl: 'templates/delete-ad.html',
+                controller: 'DeleteAdCtrl'
+            });
+
             $routeProvider.when('/user/profile', {
                 title: 'Edit user profile',
                 templateUrl: 'templates/edit-user-profile.html',
                 controller: 'EditUserProfileCtrl'
             });
 
-            $routeProvider.otherwise({ redirectTo: '/' });
+            $routeProvider.otherwise({redirectTo: '/'});
 
             // Web storage settings
             localStorageServiceProvider.setStorageType('localStorage');
-    }]);
+        }]);
 
 adsApp.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net/api/');
 adsApp.constant('pageSize', 5);

@@ -11,8 +11,8 @@ adsApp.controller('LoginCtrl', [
                 .then(function () {
                     notification.showInfo('Login successful');
                     $location.path('/user/home');
-                }, function(error) {
+                }, function (error) {
                     notification.showError('Invalid login', error);
                 });
         }
-}]);
+    }]);

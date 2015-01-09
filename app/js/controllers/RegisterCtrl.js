@@ -22,4 +22,4 @@ adsApp.controller('RegisterCtrl', [
                     notification.showError('Invalid registration', error);
                 });
         }
-}]);
+    }]);

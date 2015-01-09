@@ -12,8 +12,9 @@ adsApp.controller('PublicAdsCtrl', [
         };
 
         $scope.reloadAds = function () {
-            adsData.getPublicAds(
-                $scope.adsParams,
+            adsData.getPublicAds($scope.adsParams)
+                .$promise
+                .then(
                 function success(data) {
                     $scope.ads = data;
                     $scope.ready = true;
@@ -37,4 +38,4 @@ adsApp.controller('PublicAdsCtrl', [
             $scope.adsParams.startPage = 1;
             $scope.reloadAds();
         });
-}]);
+    }]);

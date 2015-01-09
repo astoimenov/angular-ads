@@ -5,29 +5,6 @@ adsApp.factory('userData', [
     'authentication',
     function ($http, $resource, baseServiceUrl, authentication) {
 
-        function createNewAd(adData, success, error) {
-            var request = {
-                method: 'POST',
-                url: baseServiceUrl + '/user/ads',
-                headers: authentication.getHeaders(),
-                data: adData
-            };
-
-            $http(request).success(success).error(error);
-        }
-
-        function getUserAds(params, success, error) {
-            var resource = $resource(baseServiceUrl + 'user/ads:adId', {adId: '@id'}, {
-                update: { method: 'PUT' },
-                getAll: {
-                    method: 'GET',
-                    headers: authentication.getHeaders()
-                }
-            });
-
-            return resource.getAll(params, success, error);
-        }
-
         function getUserProfile(success, error) {
             var request = {
                 method: 'GET',
@@ -60,8 +37,6 @@ adsApp.factory('userData', [
         }
 
         return {
-            createNewAd: createNewAd,
-            getUserAds: getUserAds,
             getUserProfile: getUserProfile,
             register: registerUser,
             login: loginUser,

@@ -2,10 +2,11 @@ adsApp.controller('UserAdsCtrl', [
     '$scope',
     '$route',
     'adsData',
+    'userAdsData',
     'userData',
     'pageSize',
     'notification',
-    function ($scope, $route, adsData, userData, pageSize, notification) {
+    function ($scope, $route, adsData, userAdsData, userData, pageSize, notification) {
 
         $scope.inMyAds = true;
         $scope.ready = false;
@@ -14,20 +15,11 @@ adsApp.controller('UserAdsCtrl', [
             'pageSize': pageSize
         };
 
-        $scope.deactivate = function (adId) {
-            adsData.deactivate(adId)
-                .$promise
-                .then(function () {
-                    notification.showInfo('Ad is deactivated');
-                    $route.reload();
-                }, function (error) {
-                    notification.showError('Can\'t deactivate the ad', error);
-                });
-        };
-
         $scope.reloadAds = function () {
-            userData.getUserAds(
-                $scope.adsParams,
+            userAdsData.getUserAds(
+                $scope.adsParams)
+                .$promise
+                .then(
                 function success(data) {
                     $scope.ads = data;
                     $scope.ready = true;

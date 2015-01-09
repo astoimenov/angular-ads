@@ -1,4 +1,4 @@
-adsApp.directive('publicLeftSidebar', function() {
+adsApp.directive('publicLeftSidebar', function () {
     return {
         controller: 'HomeCtrl',
         restrict: 'E',

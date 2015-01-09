@@ -3,48 +3,26 @@ adsApp.factory('adsData', [
     'authentication',
     'baseServiceUrl',
     function ($resource, authentication, baseServiceUrl) {
-    var resource = $resource(baseServiceUrl + 'ads/:adId', { adId: '@id' }, {
-        update: { method: 'PUT' },
-        getAll: { method: 'GET' }
-    });
-
-    function createAd(ad) {
-        return resource.save(ad);
-    }
-
-    function getPublicAds(params, success, error) {
-        return resource.getAll(params, success, error);
-    }
-
-    function getAdById(adId) {
-        return resource.get({ id: adId });
-    }
-
-    function editAd(adId, ad) {
-        return resource.update({ id: adId }, ad);
-    }
-
-    function deactivateAd(adId) {
-        var res = $resource(baseServiceUrl + 'user/ads/deactivate/:adId', {adId: '@id'}, {
-            update: {
-                method: 'PUT',
-                headers: authentication.getHeaders()
-            }
+        var resource = $resource(baseServiceUrl + 'ads/:adId', {adId: '@id'}, {
+            update: { method: 'PUT' },
+            getAll: { method: 'GET' }
         });
 
-        return res.update({ id: adId });
-    }
+        function createAd(ad) {
+            return resource.save(ad);
+        }
 
-    function removeAd(adId) {
-        return resource.remove({ id: adId });
-    }
+        function getPublicAds(params) {
+            return resource.getAll(params);
+        }
 
-    return {
-        add: createAd,
-        getPublicAds: getPublicAds,
-        getAdById: getAdById,
-        edit: editAd,
-        deactivate: deactivateAd,
-        delete: removeAd
-    }
-}]);
+        function editAd(adId, ad) {
+            return resource.update({id: adId}, ad);
+        }
+
+        return {
+            add: createAd,
+            getPublicAds: getPublicAds,
+            edit: editAd
+        }
+    }]);
