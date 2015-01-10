@@ -9,6 +9,7 @@ adsApp.controller('DeleteAdCtrl', [
     function ($scope, $location, $routeParams,
               userAdsData, notification) {
 
+        $scope.homeLink = 'user/home';
         var adId = $routeParams.id;
 
         userAdsData.getAdById(adId)

@@ -10,6 +10,7 @@ adsApp.controller('UserAdsCtrl', [
     'notification',
     function ($scope, $route, adsData, userAdsData, userData, pageSize, notification) {
 
+        $scope.homeLink = 'user/home';
         $scope.inMyAds = true;
         $scope.ready = false;
         $scope.adsParams = {

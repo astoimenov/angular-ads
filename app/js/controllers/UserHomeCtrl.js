@@ -8,6 +8,7 @@ adsApp.controller('UserHomeCtrl', [
     'authentication',
     function ($scope, $location, $route, userData, authentication) {
 
+        $scope.homeLink = 'user/home';
         $scope.authentication = authentication;
         $scope.isLoggedIn = authentication.isLoggedIn();
         $scope.inHome = $location.$$path == '/user/home';
