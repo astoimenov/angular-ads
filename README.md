@@ -8,6 +8,6 @@ Single page application (SPA) for Online Ads Publishing using HTML5 and AngularJ
 
 To get started you need to:
 
-1. Fork/Clone the repo locally.
+1. Fork/Clone the repo locally. / or you can run `npm install angular-ads`, if so you can skip step 2 /
 2. Run `npm install` to get dependencies.
 3. In `app/js/app.js` change `baseServiceUrl` with your service url
