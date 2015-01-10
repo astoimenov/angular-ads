@@ -5,23 +5,26 @@ adsApp.factory('userData', [
     'authentication',
     function ($http, $resource, baseServiceUrl, authentication) {
 
-        function getUserProfile(success, error) {
-            var request = {
-                method: 'GET',
-                url: baseServiceUrl + '/user/profile',
-                headers: authentication.getHeaders()
-            };
+        var userServiceUrl = baseServiceUrl + 'user/';
 
-            $http(request).success(success).error(error);
+        function getUserProfile() {
+            var resource = $resource(userServiceUrl + 'profile', {}, {
+                get: {
+                    method: 'GET',
+                    headers: authentication.getHeaders()
+                }
+            });
+
+            return resource.get();
         }
 
         function registerUser(user) {
-            return $resource(baseServiceUrl + 'user/register')
+            return $resource(userServiceUrl + 'register')
                 .save(user);
         }
 
         function loginUser(user) {
-            var resource = $resource(baseServiceUrl + 'user/login')
+            var resource = $resource(userServiceUrl + 'login')
                 .save(user);
 
             resource.$promise
@@ -32,6 +35,28 @@ adsApp.factory('userData', [
             return resource;
         }
 
+        function editUserProfile(user) {
+            var resource = $resource(userServiceUrl + 'profile', {}, {
+                update: {
+                    method: 'PUT',
+                    headers: authentication.getHeaders()
+                }
+            });
+
+            return resource.update(user);
+        }
+
+        function changeUserPassword(pass) {
+            var resource = $resource(userServiceUrl + 'changePassword', {}, {
+                update: {
+                    method: 'PUT',
+                    headers: authentication.getHeaders()
+                }
+            });
+
+            return resource.update(pass);
+        }
+
         function logout() {
             authentication.removeUser();
         }
@@ -40,6 +65,8 @@ adsApp.factory('userData', [
             getUserProfile: getUserProfile,
             register: registerUser,
             login: loginUser,
+            edit: editUserProfile,
+            changePassword: changeUserPassword,
             logout: logout
         }
     }]);

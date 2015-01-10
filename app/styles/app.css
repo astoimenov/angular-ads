@@ -103,6 +103,10 @@ body .image-box img {
     width: 100%;
 }
 
+body .row {
+    padding: 12px 0 0 0;
+}
+
 body footer {
     text-align: center;
 }

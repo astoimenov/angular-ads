@@ -1,0 +1,142 @@
+<navigation></navigation>
+
+<div class="row">
+    <div class="col-sm-3">
+        <logged-in-sidebar></logged-in-sidebar>
+    </div>
+
+    <div class="col-sm-8">
+        <section class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" name="form">
+                    <fieldset>
+                        <legend>Edit profile</legend>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control empty"
+                                           id="inputName"
+                                           ng-model="user.name" required>
+
+                                    <div class="floating-label">Name</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="email" class="form-control empty"
+                                           id="inputEmail"
+                                           ng-model="user.email" required>
+
+                                    <div class="floating-label">Email</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <input type="tel" class="form-control empty"
+                                           id="inputPhone"
+                                           ng-model="user.phoneNumber" required>
+
+                                    <div class="floating-label">Phone</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-control-wrapper">
+                                    <select class="form-control" id="town"
+                                            ng-model="user.townId" required
+                                            ng-options="town.id as town.name for town in towns">
+                                    </select>
+
+                                    <div class="floating-label">Town</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button type="submit" ng-click="edit(user)" class="btn btn-primary">Update
+                                    <div class="ripple-wrapper"></div>
+                                </button>
+
+                                <a href="#/user/ads" class="btn btn-link">Cancel</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+
+        <section class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" name="form">
+                    <fieldset>
+                        <legend>Edit profile</legend>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <div class="form-control-wrapper">
+                                    <input type="password" class="form-control empty"
+                                           id="oldPassword"
+                                           ng-model="pass.oldPassword" required>
+
+                                    <div class="floating-label">Old Password</div>
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error':form.confirmPassword.$error.match}">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <div class="form-control-wrapper">
+                                        <input type="password" class="form-control empty"
+                                               id="newPassword" name="newPassword"
+                                               ng-model="pass.newPassword" required>
+
+                                        <div class="floating-label">New Password</div>
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <div class="form-control-wrapper">
+                                        <input type="password" class="form-control empty"
+                                               id="confirmPassword" name="confirmPassword"
+                                               ng-model="pass.confirmPassword"
+                                               match="pass.newPassword" required>
+
+                                        <div class="floating-label">Confirm new password</div>
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-ng-show="form.confirmPassword.$error.match">Passwords do not match!</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button type="submit" ng-click="changePassword(pass)" class="btn btn-primary">Change
+                                    password
+                                    <div class="ripple-wrapper"></div>
+                                </button>
+
+                                <a href="#/user/ads" class="btn btn-link">Cancel</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

@@ -16,8 +16,7 @@ adsApp.controller('UserAdsCtrl', [
         };
 
         $scope.reloadAds = function () {
-            userAdsData.getUserAds(
-                $scope.adsParams)
+            userAdsData.getUserAds($scope.adsParams)
                 .$promise
                 .then(
                 function success(data) {
@@ -46,6 +45,12 @@ adsApp.controller('UserAdsCtrl', [
 
         $scope.$on('townSelectionChanged', function (event, selectedTownId) {
             $scope.adsParams.townId = selectedTownId;
+            $scope.adsParams.startPage = 1;
+            $scope.reloadAds();
+        });
+
+        $scope.$on('statusSelectionChanged', function (event, selectedStatusId) {
+            $scope.adsParams.status = selectedStatusId;
             $scope.adsParams.startPage = 1;
             $scope.reloadAds();
         });

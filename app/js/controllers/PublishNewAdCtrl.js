@@ -9,7 +9,10 @@ adsApp.controller('PublishNewAdCtrl', [
     'notification',
     function ($scope, $location, townsData, categoriesData,
               userAdsData, notification) {
-        $scope.adData = {townId: null, categoryId: null};
+        $scope.adData = {
+            townId: null,
+            categoryId: null
+        };
         $scope.categories = categoriesData.getCategories();
         $scope.towns = townsData.getTowns();
 
@@ -30,7 +33,7 @@ adsApp.controller('PublishNewAdCtrl', [
 
 
         $scope.publishAd = function (adData) {
-            if(adData.imageDataUrl == null) {
+            if (adData.imageDataUrl == null) {
                 adData.imageDataUrl = '';
             }
 

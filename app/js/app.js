@@ -4,6 +4,7 @@ var adsApp = angular.module('adsApp', [
     'ngRoute',
     'ngResource',
     'LocalStorageModule',
+    'validation.match',
     'ui.bootstrap.pagination'
 ])
 
@@ -61,8 +62,8 @@ var adsApp = angular.module('adsApp', [
 
             $routeProvider.when('/user/profile', {
                 title: 'Edit user profile',
-                templateUrl: 'templates/edit-user-profile.html',
-                controller: 'EditUserProfileCtrl'
+                templateUrl: 'templates/edit-profile.html',
+                controller: 'EditProfileCtrl'
             });
 
             $routeProvider.otherwise({redirectTo: '/'});

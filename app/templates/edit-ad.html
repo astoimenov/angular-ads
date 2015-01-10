@@ -43,8 +43,11 @@
                            onchange="angular.element(this).scope().fileSelected(this)"/>
 
                     <div class="image-box">
-                        <img ng-if="adData.imageDataUrl != ''" ng-src="{{ adData.imageDataUrl }}" ng-model-options="{ updateOn: 'blur' }" alt="Image"/>
-                        <button ng-if="adData.imageDataUrl != ''" ng-click="deleteImage(adData)" class="btn btn-primary">Delete image</button>
+                        <img ng-if="adData.imageDataUrl != ''" ng-src="{{ adData.imageDataUrl }}"
+                             ng-model-options="{ updateOn: 'blur' }" alt="Image"/>
+                        <button ng-if="adData.imageDataUrl != ''" ng-click="deleteImage(adData)"
+                                class="btn btn-primary">Delete image
+                        </button>
                     </div>
                 </div>
 
@@ -76,6 +79,7 @@
                 <p>
                     <a ng-click="edit(adData)" class="btn btn-primary">Edit</a>
                     <a href="#/user/ads" class="btn btn-primary">Cancel</a>
+
                 <p>
             </div>
         </div>
