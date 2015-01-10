@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('towns', function () {
     return {
         controller: 'RightSidebarCtrl',

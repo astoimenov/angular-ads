@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('navigation', function () {
     return {
         restrict: 'E',

@@ -1,6 +1,7 @@
 'use strict';
 
-adsApp.factory('notification',
+adsApp.factory(
+    'notification',
     function () {
         return {
             showInfo: function (msg) {
@@ -8,18 +9,19 @@ adsApp.factory('notification',
                         text: msg,
                         type: 'info',
                         layout: 'topCenter',
-                        timeout: 1000
+                        timeout: 3000
                     }
                 );
             },
             showError: function (msg, serverError) {
                 // Collect errors to display from the server response
                 var errors = [];
-                if (serverError && serverError.error_description) {
-                    errors.push(serverError.error_description);
+                if (serverError && serverError.data.error_description) {
+                    errors.push(serverError.data.error_description);
                 }
-                if (serverError && serverError.modelState) {
-                    var modelStateErrors = serverError.modelState;
+
+                if (serverError && serverError.data.modelState) {
+                    var modelStateErrors = serverError.data.modelState;
                     for (var propertyName in modelStateErrors) {
                         var errorMessages = modelStateErrors[propertyName];
                         var trimmedName =
@@ -30,9 +32,11 @@ adsApp.factory('notification',
                         }
                     }
                 }
+
                 if (errors.length > 0) {
                     msg = msg + ":<br>" + errors.join("<br>");
                 }
+
                 noty({
                         text: msg,
                         type: 'error',

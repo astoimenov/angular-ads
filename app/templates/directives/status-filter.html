@@ -1,0 +1,22 @@
+<div id="status-filter">
+    <h2>My ads</h2>
+    <ul class="sidebar-menu">
+        <li class="special"
+            ng-class="{'selected' : selectedStatusId == null}"
+            ng-click="statusClicked(null)">
+            All
+        </li>
+        <li ng-class="{'selected' : selectedStatusId == 'published'}"
+            ng-click="statusClicked('published')">
+            Published
+        </li>
+        <li ng-class="{'selected' : selectedStatusId == 'waitingApproval'}"
+            ng-click="statusClicked('waitingApproval')">
+            Waiting approval
+        </li>
+        <li ng-class="{'selected' : selectedStatusId == 'inactive'}"
+            ng-click="statusClicked('inactive')">
+            Inactive
+        </li>
+    </ul>
+</div>

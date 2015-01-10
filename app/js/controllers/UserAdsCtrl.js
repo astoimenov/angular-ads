@@ -1,20 +1,24 @@
 'use strict';
 
-adsApp.controller('PublicAdsCtrl', [
+adsApp.controller('UserAdsCtrl', [
     '$scope',
+    '$route',
     'adsData',
+    'userAdsData',
+    'userData',
     'pageSize',
     'notification',
-    function ($scope, adsData, pageSize, notification) {
+    function ($scope, $route, adsData, userAdsData, userData, pageSize, notification) {
 
+        $scope.inMyAds = true;
         $scope.ready = false;
         $scope.adsParams = {
-            startPage: 1,
-            pageSize: pageSize
+            'startPage': 1,
+            'pageSize': pageSize
         };
 
         $scope.reloadAds = function () {
-            adsData.getPublicAds($scope.adsParams)
+            userAdsData.getUserAds($scope.adsParams)
                 .$promise
                 .then(
                 function success(data) {
@@ -37,6 +41,12 @@ adsApp.controller('PublicAdsCtrl', [
 
         $scope.$on('townSelectionChanged', function (event, selectedTownId) {
             $scope.adsParams.townId = selectedTownId;
+            $scope.adsParams.startPage = 1;
+            $scope.reloadAds();
+        });
+
+        $scope.$on('statusSelectionChanged', function (event, selectedStatusId) {
+            $scope.adsParams.status = selectedStatusId;
             $scope.adsParams.startPage = 1;
             $scope.reloadAds();
         });

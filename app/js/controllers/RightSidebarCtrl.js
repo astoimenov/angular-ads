@@ -1,9 +1,12 @@
+'use strict';
+
 adsApp.controller('RightSidebarCtrl', [
     '$scope',
     '$rootScope',
     'townsData',
     'categoriesData',
     function ($scope, $rootScope, townsData, categoriesData) {
+
         $scope.categories = categoriesData.getCategories();
         $scope.towns = townsData.getTowns();
 
@@ -16,4 +19,4 @@ adsApp.controller('RightSidebarCtrl', [
             $scope.selectedTownId = clickedTownId;
             $rootScope.$broadcast('townSelectionChanged', clickedTownId);
         };
-}]);
+    }]);

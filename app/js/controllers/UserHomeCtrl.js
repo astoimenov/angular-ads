@@ -1,6 +1,6 @@
 'use strict';
 
-adsApp.controller('HomeCtrl', [
+adsApp.controller('UserHomeCtrl', [
     '$scope',
     '$location',
     '$route',
@@ -10,6 +10,9 @@ adsApp.controller('HomeCtrl', [
 
         $scope.authentication = authentication;
         $scope.isLoggedIn = authentication.isLoggedIn();
+        $scope.inHome = $location.$$path == '/user/home';
+        $scope.inMyAds = $location.$$path == '/user/ads';
+        $scope.inPublishNew = $location.$$path == '/user/ads/publish';
 
         $scope.logout = function (user) {
             userData.logout(user);

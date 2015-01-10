@@ -1,77 +1,169 @@
 /* app css stylesheet */
 body {
-  padding-top: 90px; }
-  body ul.pagination {
-    display: table;
-    margin: 15px auto; }
-  body .panel .panel-heading {
-    font-weight: bold; }
-  body .panel .panel-heading time {
+    padding-top: 90px;
+}
+
+body a {
+    cursor: pointer;
+}
+
+body header .navbar-header {
+    width: 98%;
+}
+
+body header .user-area {
     float: right;
-    font-style: italic; }
-  body .panel .panel-body {
+    font-size: 17px;
+    padding: 13px;
+}
+
+body header #logo {
+    float: left;
+    width: 45px;
+}
+
+body ul.pagination {
+    display: table;
+    margin: 15px auto;
+}
+
+body ul.sidebar-menu {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+body ul.sidebar-menu li {
+    color: #337ab7;
+    padding: 5px;
+    width: 200px;
+}
+
+body ul.sidebar-menu li:hover {
+    background-color: #eeeeee;
+    color: #23527c;
+    cursor: pointer;
+}
+
+body ul.sidebar-menu li.selected {
+    background-color: #03a9f4;
+    color: rgba(255, 255, 255, 0.84314);
+}
+
+body .panel .panel-heading {
+    font-weight: bold;
+}
+
+body .panel .panel-heading time {
+    float: right;
+    font-style: italic;
+}
+
+body .panel .panel-body {
     border: 1px solid #eeeeee;
-    text-align: center; }
-    body .panel .panel-body.ad-body {
-      border: 0 !important;
-      padding: 0 !important;
-      max-height: 250px; }
-      body .panel .panel-body.ad-body img {
-        -webkit-border-radius: 0 0 0 2px;
-        -moz-border-radius: 0 0 0 2px;
-        border-radius: 0 0 0 2px;
-        float: left;
-        max-width: 250px;
-        height: 250px; }
-      body .panel .panel-body.ad-body .ad-info {
-        padding: 15px; }
-        body .panel .panel-body.ad-body .ad-info .ad-text {
-          display: -webkit-box;
-          -webkit-line-clamp: 8;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          padding: 5px; }
-  body .btn-group-vertical {
-    margin: 0 !important; }
-  body footer {
-    text-align: center; }
-  body .loader {
+    text-align: center;
+}
+
+body .panel .panel-body.ad-body {
+    border: 0 !important;
+    padding: 0 !important;
+    max-height: 250px;
+}
+
+body .panel .panel-body.ad-body img {
+    -webkit-border-radius: 0 0 0 2px;
+    -moz-border-radius: 0 0 0 2px;
+    border-radius: 0 0 0 2px;
+    float: left;
+    max-width: 250px;
+    height: 250px;
+}
+
+body .panel .panel-body.ad-body .ad-info {
+    padding: 15px;
+}
+
+body .panel .panel-body.ad-body .ad-info .ad-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 5px;
+}
+
+body .btn-group-vertical {
+    margin: 0 !important;
+}
+
+body .image-box {
+    width: 500px;
+    padding: 20px;
+}
+
+body .image-box img {
+    width: 100%;
+}
+
+body .row {
+    padding: 12px 0 0 0;
+}
+
+body footer {
+    text-align: center;
+}
+
+body .loader {
     height: 80px;
     width: 80px;
     position: relative;
-    margin: 100px auto; }
-    body .loader .spin {
-      height: 80px;
-      width: 80px;
-      -webkit-animation: myspin 1s ease infinite; }
-      body .loader .spin, body .loader .spin:before {
-        box-sizing: border-box;
-        border: 5px solid blue;
-        border-left-color: #3369e8;
-        border-top-color: #d50f25;
-        border-right-color: #009925;
-        border-bottom-color: #eeb211;
-        border-radius: 50%;
-        position: absolute;
-        display: block; }
-      body .loader .spin:before {
-        content: " ";
-        left: 50%;
-        top: 50%;
-        height: 96px;
-        width: 96px;
-        margin: -48px;
-        border-width: 6px;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-top-color: transparent;
-        border-bottom-color: rgba(0, 0, 0, 0.2);
-        opacity: 1;
-        -webkit-animation: myspin 1s reverse ease infinite; }
+    margin: 100px auto;
+}
+
+body .loader .spin {
+    height: 80px;
+    width: 80px;
+    -webkit-animation: myspin 1s ease infinite;
+}
+
+body .loader .spin, body .loader .spin:before {
+    box-sizing: border-box;
+    border: 5px solid blue;
+    border-left-color: #3369e8;
+    border-top-color: #d50f25;
+    border-right-color: #009925;
+    border-bottom-color: #eeb211;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+}
+
+body .loader .spin:before {
+    content: " ";
+    left: 50%;
+    top: 50%;
+    height: 96px;
+    width: 96px;
+    margin: -48px;
+    border-width: 6px;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    -webkit-animation: myspin 1s reverse ease infinite;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #03a9f4 !important;
+    border-color: #03a9f4 !important;
+    color: rgba(255, 255, 255, 0.84314) !important;
+}
 
 @-webkit-keyframes myspin {
-  from {
-    -webkit-transform: rotate(0deg); }
+    from {
+        -webkit-transform: rotate(0deg);
+    }
 
-  to {
-    -webkit-transform: rotate(360deg); } }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}

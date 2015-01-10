@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('categories', function () {
     return {
         controller: 'RightSidebarCtrl',

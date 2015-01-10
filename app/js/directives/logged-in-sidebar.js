@@ -1,10 +1,10 @@
 'use strict';
 
-adsApp.directive('publicLeftSidebar', function () {
+adsApp.directive('loggedInSidebar', function () {
     return {
         controller: 'HomeCtrl',
         restrict: 'E',
-        templateUrl: 'templates/directives/left-sidebar.html',
+        templateUrl: 'templates/directives/logged-in-sidebar.html',
         replace: true
     }
 });

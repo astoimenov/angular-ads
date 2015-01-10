@@ -1,0 +1,41 @@
+<navigation></navigation>
+
+<div class="row">
+    <div class="col-sm-3">
+        <logged-in-sidebar></logged-in-sidebar>
+    </div>
+
+    <div class="col-sm-8">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ ad.title }}
+                <time datetime="{{ ad.date }}">{{ ad.date | date: 'd-MMM-yyyy' }}</time>
+            </div>
+            <div class="panel-body ad-body">
+                <img ng-src="{{ ad.imageDataUrl }}"/>
+
+                <div class="ad-info">
+                    <div class="ad-text">
+                        {{ ad.text }}
+                    </div>
+                    <div class="ad-category">
+                        <strong>Category:</strong>
+                        {{ ad.categoryName }}
+                    </div>
+                    <div class="ad-town">
+                        <strong>Town:</strong>
+                        {{ ad.townName }}
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" ng-click="delete(ad.id)" class="btn btn-primary">Delete
+                        <div class="ripple-wrapper"></div>
+                    </button>
+                    <a href="#/user/ads" class="btn btn-link">Cancel</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

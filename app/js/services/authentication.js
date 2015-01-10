@@ -1,39 +1,48 @@
-adsApp.factory('authentication', ['localStorageService', function (localStorageService) {
-    var key = 'user';
+'use strict';
 
-    function saveUserData(data) {
-        localStorageService.set(key, data);
-    }
+adsApp.factory('authentication', [
+    'localStorageService',
+    function (localStorageService) {
 
-    function getUserData() {
-        return localStorageService.get(key);
-    }
+        var key = 'user';
 
-    function removeUser() {
-        localStorage.removeItem('ls.user');
-        //localStorageService.remove();
-    }
-
-    function getHeaders() {
-        var headers = {};
-        var userData = getUserData();
-
-        if(userData){
-            headers.Authorization = 'Bearer ' + userData.access_token;
+        function saveUserData(data) {
+            localStorageService.set(key, data);
         }
 
-        return headers;
-    }
+        function getUserData() {
+            return localStorageService.get(key);
+        }
 
-    function isAdmin() {
-        return getUserData().isAdmin;
-    }
+        function removeUser() {
+            localStorage.removeItem('ls.user');
+        }
 
-    return {
-        saveUser: saveUserData,
-        getUser: getUserData,
-        removeUser: removeUser,
-        getHeaders: getHeaders,
-        isAdmin: isAdmin
-    }
-}]);
+        function getHeaders() {
+            var headers = {};
+            var userData = getUserData();
+
+            if (userData) {
+                headers.Authorization = 'Bearer ' + userData.access_token;
+            }
+
+            return headers;
+        }
+
+        function isAdmin() {
+            return getUserData().isAdmin;
+        }
+
+        function isLoggedIn() {
+            return !!getUserData();
+        }
+
+        return {
+            saveUser: saveUserData,
+            getUserData: getUserData,
+            removeUser: removeUser,
+            getHeaders: getHeaders,
+            isAdmin: isAdmin,
+            isLoggedIn: isLoggedIn
+        }
+    }]);
