@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.factory('authentication', [
     'localStorageService',
     function (localStorageService) {

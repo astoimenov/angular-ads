@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.factory('userAdsData', [
     '$resource',
     'authentication',

@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('statusFilter', function () {
     return {
         controller: 'StatusFilterCtrl',

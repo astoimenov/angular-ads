@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.controller('LoginCtrl', [
     '$scope',
     '$location',

@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('publicLeftSidebar', function () {
     return {
         controller: 'HomeCtrl',

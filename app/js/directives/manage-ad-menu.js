@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('manageAdMenu', function () {
     return {
         controller: 'ManageAdMenuCtrl',

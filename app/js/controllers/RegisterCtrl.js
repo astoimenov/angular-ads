@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.controller('RegisterCtrl', [
     '$scope',
     '$location',

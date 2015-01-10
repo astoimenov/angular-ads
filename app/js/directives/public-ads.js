@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('publicAds', function () {
     return {
         controller: 'PublicAdsCtrl',

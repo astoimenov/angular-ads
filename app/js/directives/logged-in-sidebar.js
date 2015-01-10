@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.directive('loggedInSidebar', function () {
     return {
         controller: 'HomeCtrl',

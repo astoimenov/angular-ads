@@ -1,3 +1,5 @@
+'use strict';
+
 adsApp.controller('PublicAdsCtrl', [
     '$scope',
     'adsData',
