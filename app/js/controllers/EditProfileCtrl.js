@@ -8,6 +8,7 @@ adsApp.controller('EditProfileCtrl', [
     'notification',
     function ($scope, $location, townsData, userData, notification) {
 
+        $scope.homeLink = 'user/home';
         $scope.pass = {
             oldPassword: null,
             newPassword: null,

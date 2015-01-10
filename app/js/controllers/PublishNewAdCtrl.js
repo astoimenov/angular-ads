@@ -10,6 +10,7 @@ adsApp.controller('PublishNewAdCtrl', [
     function ($scope, $location, townsData, categoriesData,
               userAdsData, notification) {
 
+        $scope.homeLink = 'user/home';
         $scope.adData = {
             townId: null,
             categoryId: null

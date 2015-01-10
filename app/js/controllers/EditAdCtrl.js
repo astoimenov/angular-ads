@@ -11,6 +11,7 @@ adsApp.controller('EditAdCtrl', [
     function ($scope, $routeParams, $location, townsData, categoriesData,
               userAdsData, notification) {
 
+        $scope.homeLink = 'user/home';
         var adId = $routeParams.id;
         var changeImage = false;
 
