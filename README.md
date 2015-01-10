@@ -10,3 +10,4 @@ To get started you need to:
 
 1. Fork/Clone the repo locally.
 2. Run `npm install` to get dependencies.
+3. In `app/js/app.js` change `baseServiceUrl` with your service url
