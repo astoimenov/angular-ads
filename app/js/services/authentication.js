@@ -1,6 +1,7 @@
 adsApp.factory('authentication', [
     'localStorageService',
     function (localStorageService) {
+
         var key = 'user';
 
         function saveUserData(data) {

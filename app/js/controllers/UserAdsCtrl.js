@@ -22,15 +22,9 @@ adsApp.controller('UserAdsCtrl', [
                 function success(data) {
                     $scope.ads = data;
                     $scope.ready = true;
-
-                    userData.getUserProfile(
-                        function success(data) {
-                            $scope.ownerData = data;
-                        }
-                    );
                 },
-                function error(err) {
-                    notification.showError('Cannot load ads', err);
+                function error(error) {
+                    notification.showError('Cannot load ads', error);
                 }
             );
         };

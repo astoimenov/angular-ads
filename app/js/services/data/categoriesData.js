@@ -1,11 +1,15 @@
-adsApp.factory('categoriesData', ['$resource', 'baseServiceUrl', function ($resource, baseServiceUrl) {
-    var resource = $resource(baseServiceUrl + 'categories');
+adsApp.factory('categoriesData', [
+    '$resource',
+    'baseServiceUrl',
+    function ($resource, baseServiceUrl) {
 
-    function getCategories() {
-        return resource.query();
-    }
+        var resource = $resource(baseServiceUrl + 'categories');
 
-    return {
-        getCategories: getCategories
-    }
-}]);
+        function getCategories() {
+            return resource.query();
+        }
+
+        return {
+            getCategories: getCategories
+        }
+    }]);

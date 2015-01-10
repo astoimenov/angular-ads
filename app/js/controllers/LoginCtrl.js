@@ -8,11 +8,13 @@ adsApp.controller('LoginCtrl', [
         $scope.login = function (user) {
             userData.login(user)
                 .$promise
-                .then(function () {
+                .then(
+                function success() {
                     notification.showInfo('Login successful');
                     $location.path('/user/home');
-                }, function (error) {
+                }, function error(error) {
                     notification.showError('Invalid login', error);
-                });
+                }
+            );
         }
     }]);

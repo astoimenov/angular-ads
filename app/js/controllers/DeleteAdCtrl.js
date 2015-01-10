@@ -17,8 +17,8 @@ adsApp.controller('DeleteAdCtrl', [
             function success(data) {
                 $scope.ad = data;
             },
-            function error(err) {
-                notification.showError('Advertisement can not be deleted', err);
+            function error(error) {
+                notification.showError('Advertisement can not be deleted', error);
             }
         );
 
@@ -26,12 +26,12 @@ adsApp.controller('DeleteAdCtrl', [
             userAdsData.delete(id)
                 .$promise
                 .then(
-                function success(data) {
+                function success() {
                     notification.showInfo('Advertisement deleted');
                     $location.path('/user/ads');
                 },
-                function error(err) {
-                    notification.showError('Advertisement can not be deleted', err);
+                function error(error) {
+                    notification.showError('Advertisement can not be deleted', error);
                 }
             );
         }

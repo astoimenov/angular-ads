@@ -19,8 +19,8 @@ adsApp.controller('PublicAdsCtrl', [
                     $scope.ads = data;
                     $scope.ready = true;
                 },
-                function error(err) {
-                    notification.showError('Cannot load ads', err);
+                function error(error) {
+                    notification.showError('Cannot load ads', error);
                 }
             );
         };

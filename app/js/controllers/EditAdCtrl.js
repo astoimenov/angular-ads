@@ -20,15 +20,15 @@ adsApp.controller('EditAdCtrl', [
             function success(data) {
                 $scope.adData = data;
             },
-            function error(err) {
-                notification.showError('Advertisement can not be edited', err);
+            function error(error) {
+                notification.showError('Advertisement can not be edited', error);
             }
         );
 
         $scope.categories = categoriesData.getCategories();
         $scope.towns = townsData.getTowns();
 
-        $scope.deleteImage = function (adData) {
+        $scope.deleteImage = function () {
             delete $scope.adData.imageDataUrl;
             changeImage = true;
         };
@@ -36,6 +36,7 @@ adsApp.controller('EditAdCtrl', [
         $scope.fileSelected = function (fileInputField) {
             delete $scope.adData.imageDataUrl;
             var file = fileInputField.files[0];
+
             if (file.type.match(/image\/.*/)) {
                 var reader = new FileReader();
                 reader.onload = function () {
@@ -62,9 +63,10 @@ adsApp.controller('EditAdCtrl', [
                         'Advertisement edited. Don\'t forget to submit it for publishing.');
                     $location.path('/user/ads');
                 },
-                function error(err) {
-                    notification.showError('Editing failed', err);
-                });
+                function error(error) {
+                    notification.showError('Editing failed', error);
+                }
+            );
         };
 
     }]);

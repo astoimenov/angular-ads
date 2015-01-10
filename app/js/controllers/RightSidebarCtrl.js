@@ -4,6 +4,7 @@ adsApp.controller('RightSidebarCtrl', [
     'townsData',
     'categoriesData',
     function ($scope, $rootScope, townsData, categoriesData) {
+
         $scope.categories = categoriesData.getCategories();
         $scope.towns = townsData.getTowns();
 

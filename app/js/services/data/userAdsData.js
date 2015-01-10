@@ -3,6 +3,7 @@ adsApp.factory('userAdsData', [
     'authentication',
     'baseServiceUrl',
     function ($resource, authentication, baseServiceUrl) {
+
         var resource = $resource(baseServiceUrl + 'user/ads/:adId', {adId: '@id'}, {
             update: {
                 method: 'PUT',

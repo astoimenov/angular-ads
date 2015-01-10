@@ -28,9 +28,11 @@ adsApp.factory('userData', [
                 .save(user);
 
             resource.$promise
-                .then(function (data) {
+                .then(
+                function success(data) {
                     authentication.saveUser(data);
-                });
+                }
+            );
 
             return resource;
         }

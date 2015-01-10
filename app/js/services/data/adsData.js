@@ -4,8 +4,12 @@ adsApp.factory('adsData', [
     'baseServiceUrl',
     function ($resource, authentication, baseServiceUrl) {
         var resource = $resource(baseServiceUrl + 'ads/:adId', {adId: '@id'}, {
-            update: {method: 'PUT'},
-            getAll: {method: 'GET'}
+            update: {
+                method: 'PUT'
+            },
+            getAll: {
+                method: 'GET'
+            }
         });
 
         function createAd(ad) {

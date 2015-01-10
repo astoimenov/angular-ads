@@ -1,11 +1,15 @@
-adsApp.factory('townsData', ['$resource', 'baseServiceUrl', function ($resource, baseServiceUrl) {
-    var resource = $resource(baseServiceUrl + 'towns');
+adsApp.factory('townsData', [
+    '$resource',
+    'baseServiceUrl',
+    function ($resource, baseServiceUrl) {
 
-    function getTowns() {
-        return resource.query();
-    }
+        var resource = $resource(baseServiceUrl + 'towns');
 
-    return {
-        getTowns: getTowns
-    }
-}]);
+        function getTowns() {
+            return resource.query();
+        }
+
+        return {
+            getTowns: getTowns
+        }
+    }]);

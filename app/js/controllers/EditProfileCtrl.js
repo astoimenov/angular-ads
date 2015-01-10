@@ -14,19 +14,8 @@ adsApp.controller('EditProfileCtrl', [
             confirmPassword: null
         };
 
-        townsData.getTowns()
-            .$promise
-            .then(function (data) {
-                $scope.towns = data;
-            });
-
-        userData.getUserProfile()
-            .$promise
-            .then(
-            function (data) {
-                $scope.user = data;
-            }
-        );
+        $scope.towns = townsData.getTowns();
+        $scope.user = userData.getUserProfile();
 
         $scope.edit = function (user) {
             userData.edit(user)
@@ -34,10 +23,10 @@ adsApp.controller('EditProfileCtrl', [
                 .then(
                 function success() {
                     notification.showInfo('User profile successfully updated.');
-                    $location.path('/user/ads');
+                    $location.path('/user/home');
                 },
-                function error(err) {
-                    notification.showError('User profile is not updated.', err);
+                function error(error) {
+                    notification.showError('User profile is not updated.', error);
                 }
             );
         };
@@ -48,10 +37,10 @@ adsApp.controller('EditProfileCtrl', [
                 .then(
                 function success() {
                     notification.showInfo('Password successfully updated.');
-                    $location.path('/user/ads');
+                    $location.path('/user/home');
                 },
-                function error(err) {
-                    notification.showError('Password is not updated.', err);
+                function error(error) {
+                    notification.showError('Password is not updated.', error);
                 }
             );
         }

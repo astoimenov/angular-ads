@@ -38,49 +38,52 @@
                 </div>
 
                 <div>
-                    <label for="image">Image:</label>
-                    <input type="file" id="image"
-                           onchange="angular.element(this).scope().fileSelected(this)"/>
+                    <div>
+                        <label for="image">Image:</label>
+                        <input type="file" id="image"
+                               onchange="angular.element(this).scope().fileSelected(this)"/>
+                    </div>
 
                     <div class="image-box">
-                        <img ng-if="adData.imageDataUrl != ''" ng-src="{{ adData.imageDataUrl }}"
-                             ng-model-options="{ updateOn: 'blur' }" alt="Image"/>
-                        <button ng-if="adData.imageDataUrl != ''" ng-click="deleteImage(adData)"
+                        <img ng-if="adData.imageDataUrl != null" ng-src="{{ adData.imageDataUrl }}" alt="Image"/>
+                        <button ng-click="deleteImage(adData)" ng-if="adData.imageDataUrl != null"
                                 class="btn btn-primary">Delete image
                         </button>
                     </div>
                 </div>
 
 
-                <div class="col-sm-6">
-                    <div class="form-control-wrapper">
-                        <select class="form-control" id="category"
-                                ng-model="adData.categoryId" required
-                                ng-options="category.id as category.name for category in categories">
-                        </select>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-control-wrapper">
+                            <select class="form-control" id="category"
+                                    ng-model="adData.categoryId" required
+                                    ng-options="category.id as category.name for category in categories">
+                            </select>
 
-                        <div class="floating-label">Category</div>
-                        <span class="material-input"></span>
+                            <div class="floating-label">Category</div>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-control-wrapper">
+                            <select class="form-control" id="town"
+                                    ng-model="adData.townId" required
+                                    ng-options="town.id as town.name for town in towns">
+                            </select>
+
+                            <div class="floating-label">Town</div>
+                            <span class="material-input"></span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="form-control-wrapper">
-                        <select class="form-control" id="town"
-                                ng-model="adData.townId" required
-                                ng-options="town.id as town.name for town in towns">
-                        </select>
-
-                        <div class="floating-label">Town</div>
-                        <span class="material-input"></span>
-                    </div>
-                </div>
-
-                <p>
+                <div class="row">
                     <a ng-click="edit(adData)" class="btn btn-primary">Edit</a>
-                    <a href="#/user/ads" class="btn btn-primary">Cancel</a>
+                    <a href="#/user/ads" class="btn btn-link">Cancel</a>
 
-                <p>
+                </div>
             </div>
         </div>
     </div>

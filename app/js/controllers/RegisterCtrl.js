@@ -6,20 +6,19 @@ adsApp.controller('RegisterCtrl', [
     'notification',
     function ($scope, $location, townsData, userData, notification) {
 
-        townsData.getTowns()
-            .$promise
-            .then(function (data) {
-                $scope.towns = data;
-            });
+        $scope.towns = townsData.getTowns();
 
         $scope.register = function (user) {
             userData.register(user)
                 .$promise
-                .then(function () {
+                .then(
+                function success() {
                     notification.showInfo('User account created. Please log in.');
                     $location.path('/login');
-                }, function (error) {
+                },
+                function error(error) {
                     notification.showError('Invalid registration', error);
-                });
+                }
+            );
         }
     }]);

@@ -5,12 +5,10 @@
         <logged-in-sidebar></logged-in-sidebar>
     </div>
 
-    <div class="col-sm-6">
-        <public-ads ng-if="inHome"></public-ads>
-        <user-ads ng-if="inMyAds"></user-ads>
-    </div>
+    <public-ads ng-if="inHome" class="col-sm-6"></public-ads>
+    <user-ads ng-if="inMyAds" class="col-sm-8"></user-ads>
 
-    <div class="col-sm-3">
+    <div class="col-sm-3" ng-if="!inMyAds">
         <categories></categories>
         <towns></towns>
     </div>
