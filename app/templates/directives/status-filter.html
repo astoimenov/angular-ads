@@ -18,5 +18,9 @@
             ng-click="statusClicked('inactive')">
             Inactive
         </li>
+        <li ng-class="{'selected' : selectedStatusId == 'rejected'}"
+            ng-click="statusClicked('rejected')">
+            Rejected
+        </li>
     </ul>
 </div>
