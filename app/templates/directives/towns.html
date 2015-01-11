@@ -6,7 +6,7 @@
             ng-click="townClicked(null)">
             All
         </li>
-        <li ng-repeat="town in towns"
+        <li ng-repeat="town in towns | orderBy:'name'"
             ng-click="townClicked(town.id)"
             ng-class="{'selected' : selectedTownId == town.id}">
             {{town.name}}
