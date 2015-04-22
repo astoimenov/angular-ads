@@ -2,7 +2,10 @@ Angular-ads
 ===============
 
 Course project for AngularJS course in Software University.
-Single page application (SPA) for Online Ads Publishing using HTML5 and AngularJS. The app manages users and their ads organized by towns and categories. Anonymous site visitors can view published ads. Users can register, login, view their ads, add, edit and delete ads and logout.
+Single page application (SPA) for Online Ads Publishing using HTML5 and AngularJS.
+The app manages users and their ads organized by towns and categories. Anonymous site
+visitors can view published ads. Users can register, login, view their ads, add, edit and 
+delete ads and logout.
 
 ## Get started ##
 
