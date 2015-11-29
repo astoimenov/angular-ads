@@ -47,7 +47,7 @@ adsApp.controller('PublishNewAdCtrl', [
                 .then(
                 function success() {
                     notification.showInfo(
-                        'Advertisement submitted dor approval. Once approved, it will be published.');
+                        'Advertisement submitted for approval. Once approved, it will be published.');
                     $location.path('/user/ads');
                 },
                 function error(error) {
